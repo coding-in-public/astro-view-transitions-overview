@@ -1,0 +1,29 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+// components
+import Hero from "@/components/home/hero.astro";
+import FeaturesBanner from "@/components/home/FeaturesBanner.astro";
+import ProjectSection from "@/components/home/ProjectSection.astro";
+import ContactForm from "@/components/ContactForm.astro";
+import ReactComponent from "@/components/ReactComponent";
+---
+
+<BaseLayout>
+  <!-- <video controls="" autoplay="" transition:persist="video-player">
+    <source
+      src="https://ia804502.us.archive.org/33/items/GoldenGa1939_3/GoldenGa1939_3_512kb.mp4"
+      type="video/mp4"
+    />
+  </video> -->
+  <!-- <ReactComponent
+    client:load
+    transition:persist="counter"
+    text="Homepage"
+    transition:persist-props
+  /> -->
+  <Hero />
+  <FeaturesBanner />
+  <ProjectSection />
+  <ContactForm />
+</BaseLayout>

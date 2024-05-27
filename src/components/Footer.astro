@@ -1,0 +1,77 @@
+---
+import { socialData } from "@/data/siteData";
+import { Icon } from "astro-icon/components";
+---
+
+<footer>
+  <div>
+    <p>
+      &copy; <span id="copyright">{new Date().getFullYear()}</span> Katie Haus. All
+      rights reserved. I’m a skilled web developer passionate about creating innovative
+      and user-friendly websites.
+    </p>
+    <button
+      id="theme"
+      aria-label="Toggle theme"
+      title="Toggle theme"
+      class="btn secondary badge"
+    >
+      <Icon name="icon--theme" size={24} aria-hidden="true" />
+    </button>
+    <ul>
+      {
+        socialData.map(({ href, title, icon }) => (
+          <li>
+            <a href={href} aria-label={title} title={title}>
+              <Icon name={icon} size={24} />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const copyrightSpan = document.querySelector(
+      "#copyright"
+    ) as HTMLSpanElement;
+    copyrightSpan.textContent = new Date().getFullYear().toString();
+
+    // theming
+    const themeBtn = document.querySelector("#theme") as HTMLButtonElement;
+
+    // fetch theme
+    const existingTheme = localStorage.getItem("theme");
+
+    const setTheme = (theme: string) => {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+    };
+
+    if (existingTheme) {
+      setTheme(existingTheme);
+    }
+
+    themeBtn.addEventListener("click", () => {
+      const newTheme =
+        localStorage.getItem("theme") === "light" ? "dark" : "light";
+      setTheme(newTheme);
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener("astro:after-swap", () => {
+    const existingTheme = localStorage.getItem("theme");
+
+    const setTheme = (theme: string) => {
+      document.documentElement.setAttribute("data-theme", theme);
+    };
+
+    if (existingTheme) {
+      setTheme(existingTheme);
+    }
+  });
+</script>

@@ -1,0 +1,27 @@
+{
+  "name": "project",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "server": "json-server db.json"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.7.0",
+    "@astrojs/netlify": "^5.2.1",
+    "@astrojs/react": "^3.4.0",
+    "@astrojs/sitemap": "^3.1.5",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "astro": "^4.9.1",
+    "astro-icon": "^1.1.0",
+    "json-server": "^1.0.0-alpha.23",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.3.3"
+  }
+}
